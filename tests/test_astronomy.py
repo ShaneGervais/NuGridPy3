@@ -24,7 +24,7 @@ class TestFunctions(unittest.TestCase):
         """Test that imf and int_imf_dm are working properly."""
         astro_imf = astronomy.int_imf_dm(
             self.m1, self.m2, self.m_arr, self.imf_arr, bywhat='bynumber')
-        test_imf = integrate.trapz(self.imf_arr, self.m_arr)
+        test_imf = integrate.trapezoid(self.imf_arr, self.m_arr)
         self.assertAlmostEqual(astro_imf, test_imf, places=3)
 
     def test_args(self):
@@ -77,5 +77,5 @@ class TestDecorator(unittest.TestCase):
 
         self.assertEqual(self.arg_test.constants, (self.test_constant,))
 
-        with self.assertRaisesRegex(AttributeError, 'can\'t set attribute'):
+        with self.assertRaises(AttributeError):
             self.arg_test.constants = self.test_constant

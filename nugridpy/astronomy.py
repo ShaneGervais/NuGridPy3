@@ -245,7 +245,7 @@ def int_imf_dm(m1, m2, m, imf_ar, bywhat='bymass', integral='normal'):
         that mass interval; or 'bynumber' which integrates the number
         of stars in that mass interval.  The default is 'bymass'.
     integrate : string, optional
-        'normal' uses scipy.integrate.trapz; 'cum' returns cumulative
+        'normal' uses scipy.integrate.trapezoid; 'cum' returns cumulative
         trapezoidal integral.  The default is 'normal'.
 
     Returns
@@ -257,9 +257,9 @@ def int_imf_dm(m1, m2, m, imf_ar, bywhat='bymass', integral='normal'):
     ind_m = (m >= min(m1, m2)) & (m <= max(m1, m2))
 
     if integral == 'normal':
-        int_func = integrate.trapz
+        int_func = integrate.trapezoid
     elif integral == 'cum':
-        int_func = integrate.cumtrapz
+        int_func = integrate.cumulative_trapezoid
     else:
         raise ValueError(
             "Error in int_imf_dm: don't know how to integrate (normal or cum)")

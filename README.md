@@ -40,6 +40,30 @@ policy is:
 - Keep import-time side effects minimal so the package remains stable in
   scripts, notebooks, batch jobs, and documentation builds.
 
+## Development Setup
+
+NuGridPy3 uses `pyproject.toml` for package metadata and dependency groups.
+Use a virtual environment for local development, then install the package in
+editable mode with the development and documentation extras:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements-dev.txt
+```
+
+Run the test suite with:
+
+```bash
+python3 -m pytest
+```
+
+Runtime-only installs can use:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
 ## Plotting Direction
 
 Plotting modernization is a first-class goal, not an afterthought. NuGridPy3

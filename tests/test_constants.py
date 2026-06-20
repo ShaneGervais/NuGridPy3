@@ -11,7 +11,7 @@ class TestConstant(unittest.TestCase):
 
     def setUp(self):
         self.value = random.uniform(-1e30, 1e30)
-        self.integer = random.randint(-1e10, 1e10)
+        self.integer = random.randint(-10**10, 10**10)
         self.test_constant = Constant(self.value, 'Test', 'None')
 
         # Check that Constant was initialized properly as float type

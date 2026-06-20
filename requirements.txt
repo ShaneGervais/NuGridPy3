@@ -1,9 +1,2 @@
-future
-numpy
-scipy
-matplotlib
-h5py
-mock
-sphinx
-sphinx-bootstrap-theme
-nose
+# Legacy convenience file. Project dependencies are defined in pyproject.toml.
+-e .
